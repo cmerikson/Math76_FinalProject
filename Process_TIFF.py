@@ -14,16 +14,20 @@ def calculate_ndvi(file_path, threshold=False, display=False, metadata_list=None
     # Define subfolder paths
     ndvi_folder = os.path.join(dir_name, "NDVI")
     rgb_folder = os.path.join(dir_name, "RGB")
+    rgba_folder = os.path.join(dir_name, "RGBA")  # New folder for RGBA images
 
     # Create subfolders if nonexistent
     os.makedirs(ndvi_folder, exist_ok=True)
     os.makedirs(rgb_folder, exist_ok=True)
+    os.makedirs(rgba_folder, exist_ok=True)
 
     # Define file names and paths
     ndvi_name = f"NDVI_{name[-10:]}.jpg"
     rgb_name = f"RGB_{name[-10:]}.jpg"
+    rgba_name = f"RGBA_{name[-10:]}.png"  # Save RGBA as PNG
     ndvi_path = os.path.join(ndvi_folder, ndvi_name)
     rgb_path = os.path.join(rgb_folder, rgb_name)
+    rgba_path = os.path.join(rgba_folder, rgba_name)
 
     with rasterio.open(file_path) as src:
         # Read the affine transform to get the pixel size
@@ -59,13 +63,13 @@ def calculate_ndvi(file_path, threshold=False, display=False, metadata_list=None
         # Normalize the RGB image to the range [0, 1] for display
         rgb_normalized = rgb / np.max(rgb)
 
-        # Save rgb as JPEG
+        # Save RGB as JPEG
         rgb_normalized_uint8 = (rgb_normalized * 255).astype(np.uint8)
         rgb_image = Image.fromarray(rgb_normalized_uint8)
         rgb_image.save(rgb_path)
 
         # Display the RGB image
-        if display is not False:
+        if display:
             plt.figure(figsize=(10, 10))
             plt.imshow(rgb_normalized)
             plt.title('RGB Image')
@@ -91,7 +95,7 @@ def calculate_ndvi(file_path, threshold=False, display=False, metadata_list=None
         ndvi_image.save(ndvi_path)
 
         # Display NDVI
-        if display is not False:
+        if display:
             plt.figure()
             plt.imshow(ndvi_normalized, cmap='RdYlGn')
             plt.colorbar()
@@ -99,7 +103,27 @@ def calculate_ndvi(file_path, threshold=False, display=False, metadata_list=None
             plt.axis('off')
             plt.show()
 
+        # Create an alpha channel based on NDVI or NIR threshold
+        # Here using NDVI > 0.2 as an example threshold
+        alpha = (ndvi > 0.2).astype(np.uint8) * 255
+
+        # Stack RGB and Alpha to create RGBA
+        rgba = np.dstack((rgb_normalized_uint8, alpha))
+
+        # Save RGBA as PNG
+        rgba_image = Image.fromarray(rgba, 'RGBA')
+        rgba_image.save(rgba_path)
+
+        # Display the RGBA image
+        if display:
+            plt.figure(figsize=(10, 10))
+            plt.imshow(rgba)
+            plt.title('RGBA Image')
+            plt.axis('off')
+            plt.show()
+
     print(f"NDVI image saved as {ndvi_name}")
+    print(f"RGBA image saved as {rgba_name}")
 
 def process_folder(path, threshold=False):
     metadata_list = []
@@ -140,4 +164,3 @@ def process_file(path, threshold=False):
             f.write(f"Height: {metadata['height']} pixels\n")
             f.write(f"CRS: {metadata['crs']}\n")
             f.write("\n")
-
