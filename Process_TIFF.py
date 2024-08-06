@@ -51,10 +51,10 @@ def calculate_ndvi(file_path, threshold=False, display=False, metadata_list=None
                 'crs': crs
             })
 
-        # Read the RGB bands (assuming band order: 1 - Blue, 2 - Green, 3 - Red, 4 - NIR)
-        blue = src.read(1).astype(np.float32)
+        # Read the RGB bands (Band order: Red, Green, Blue, NIR)
+        blue = src.read(3).astype(np.float32)
         green = src.read(2).astype(np.float32)
-        red = src.read(3).astype(np.float32)
+        red = src.read(1).astype(np.float32)
         nir = src.read(4).astype(np.float32)
 
         # Stack the bands into an RGB image

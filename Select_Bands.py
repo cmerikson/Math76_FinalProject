@@ -2,8 +2,13 @@ import numpy as np
 import rasterio
 from PIL import Image
 
-def select_bands(file_path, bands, output_path):
+def select_bands(file_path, bandA, bandB, bandC, output_path):
+    bands = [bandA,bandB,bandC]
     with rasterio.open(file_path) as src:
+        # Ensure bands is treated as an iterable list
+        if not hasattr(bands, '__iter__'):
+            raise TypeError("Bands must be an iterable.")
+            
         if len(bands) == 2:
             # Read the specified bands for NDVI-like calculation
             band1 = src.read(bands[0]).astype(np.float32)
