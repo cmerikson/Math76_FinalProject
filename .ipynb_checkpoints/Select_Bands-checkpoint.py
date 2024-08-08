@@ -9,7 +9,7 @@ def select_bands(file_path, bandA, bandB, bandC, output_path):
         if not hasattr(bands, '__iter__'):
             raise TypeError("Bands must be an iterable.")
             
-        if len(bands) == 2:
+        if bandC is None:
             # Read the specified bands for NDVI-like calculation
             band1 = src.read(bands[0]).astype(np.float32)
             band2 = src.read(bands[1]).astype(np.float32)

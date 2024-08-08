@@ -1,4 +1,4 @@
-using Images, ImageView, ImageSegmentation, ImageDraw, FileIO, Plots, PyCall
+using Images, ImageView, ImageSegmentation, ImageDraw, FileIO, Plots, PyCall, Glob
 
 # Function for calling band selection from python script
 function select_bands(file::String, bandA::Int, bandB::Int, bandC::Union{Nothing, Int}, output::String)
@@ -113,4 +113,112 @@ function segmented_object(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::T
         
         return segments
     end
+end
+
+function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, threshold::Float64 = 1.0, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing)
+    
+    # Get all files matching the pattern mm-dd-yyyy
+    files = glob("*-*-*.tif", folder)
+    
+    # Parse the file names to Dates and sort in reverse order by year
+    date_format = DateFormat("mm-dd-yyyy")
+    
+    # Function to extract and parse date from the last ten characters of filename
+   function extract_date(filename)
+        base = basename(filename) # Remove folder path
+        date_str = splitext(base)[1] # Remove extension
+        parts = split(date_str, "_") # Split by underscore
+        year = parse(Int, parts[1]) # Extract year
+        week = parse(Int, parts[2]) # Extract week number
+        return (year, week)
+    end
+
+    # Sort files by the extracted date in reverse order
+    sorted = sort(files, by = x -> extract_date(x), rev = true)
+
+    file_count = length(sorted)
+
+    # Initialize result storage
+    results = DataFrame()
+    mask = nothing
+    outlines = heatmap(framestyle=:none)
+    masks = 0
+
+    # Create a temporary directory
+    temp_dir = mktempdir()
+    
+    for i in [1:1:file_count;]
+        rgb_path = select_bands(sorted[i], 1,2,3, joinpath(temp_dir, "rgb.jpg"))
+        ndvi_path = select_bands(sorted[i], 1,2,3, joinpath(temp_dir, "ndvi.jpg"))
+
+        if i == 1
+            pixel_count = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods)
+            row = DataFrame(Date=splitext(basename(sorted[i]))[1], Pixels=pixel_count)
+            append!(results, row)
+            segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
+            mask = labels_map(segments) .== 1
+
+            if Display
+                masks = masks .+ mask
+                outlines = heatmap!(reverse(masks, dims=1))
+            end
+        end
+
+        if i > 1
+            constraint = results[i-1, "Pixels"]
+            tentative = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods)
+
+            if tentative <= constraint
+              row = DataFrame(Date=splitext(basename(sorted[i]))[1], Pixels=tentative)
+              append!(results, row)
+              segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
+              mask = labels_map(segments) .== 1
+              if Display
+                masks = masks .+ mask
+                outlines = heatmap!(reverse(masks, dims=1))
+              end
+            end
+
+            if tentative > constraint
+                # Get NDVI of current image
+                NDVI = load(ndvi_path)
+
+                if threshold < 1.0
+                    # Binarize
+                    NDVI = .!binarize(NDVI, threshold)
+                end
+
+                if crop_size != nothing
+                    NDVI = crop_center(NDVI, crop_size)
+                end
+                
+                # Mask NDVI of current image by area of previous image
+                Masked_NDVI = mask .* NDVI
+                
+                # Tally pixels meeting criterion within masked area
+                pixel_count = count(x -> x != 0, Masked_NDVI)
+
+                # Add to table and update mask
+                row = DataFrame(Date=splitext(basename(sorted[i]))[1], Pixels=pixel_count)
+                append!(results, row)
+
+                if Display
+                    # Convert Masked_NDVI to binary values
+                    binary_Masked_NDVI = Masked_NDVI .> 0
+                    masks = masks .+ binary_Masked_NDVI
+                    outlines = heatmap!(reverse(masks, dims=1))
+                end
+            end
+        end
+    end
+
+    # Clean up by deleting the temporary directory and its contents
+    rm(temp_dir, recursive=true)
+
+    if Display
+        display(outlines)
+    end
+    
+    results = sort!(results, by = r -> extract_date(r[:Date]))
+    return results
 end

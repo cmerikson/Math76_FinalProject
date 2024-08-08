@@ -1,1103 +1,550 @@
-File: sentinel2_2016_week_1.tif
+File: Sentinel2_2016_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2016_week_11.tif
+File: Sentinel2_2016_11.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2016_week_13.tif
+File: Sentinel2_2016_13.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2016_week_16.tif
+File: Sentinel2_2016_16.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2016_week_2.tif
+File: Sentinel2_2016_2.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2016_week_7.tif
+File: Sentinel2_2016_7.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2016_week_9.tif
+File: Sentinel2_2016_9.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2017_week_1.tif
+File: Sentinel2_2017_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2017_week_13.tif
+File: Sentinel2_2017_13.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2017_week_17.tif
+File: Sentinel2_2017_17.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2017_week_6.tif
+File: Sentinel2_2017_6.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2018_week_1.tif
+File: Sentinel2_2018_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2018_week_11.tif
+File: Sentinel2_2018_11.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2018_week_12.tif
+File: Sentinel2_2018_12.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2018_week_13.tif
+File: Sentinel2_2018_13.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2018_week_15.tif
+File: Sentinel2_2018_15.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2018_week_16.tif
+File: Sentinel2_2018_16.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2018_week_17.tif
+File: Sentinel2_2018_17.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2018_week_2.tif
+File: Sentinel2_2018_2.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2018_week_3.tif
+File: Sentinel2_2018_3.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2018_week_4.tif
+File: Sentinel2_2018_4.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2018_week_6.tif
+File: Sentinel2_2018_6.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2019_week_1.tif
+File: Sentinel2_2019_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2019_week_10.tif
+File: Sentinel2_2019_10.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2019_week_11.tif
+File: Sentinel2_2019_11.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2019_week_12.tif
+File: Sentinel2_2019_12.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2019_week_13.tif
+File: Sentinel2_2019_13.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2019_week_15.tif
+File: Sentinel2_2019_15.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2019_week_16.tif
+File: Sentinel2_2019_16.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2019_week_17.tif
+File: Sentinel2_2019_17.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2019_week_3.tif
+File: Sentinel2_2019_3.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2019_week_4.tif
+File: Sentinel2_2019_4.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2019_week_6.tif
+File: Sentinel2_2019_6.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2019_week_7.tif
+File: Sentinel2_2019_7.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2020_week_1.tif
+File: Sentinel2_2020_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_10.tif
+File: Sentinel2_2020_10.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2020_week_11.tif
+File: Sentinel2_2020_11.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_12.tif
+File: Sentinel2_2020_12.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_13.tif
+File: Sentinel2_2020_13.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_14.tif
+File: Sentinel2_2020_14.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_17.tif
+File: Sentinel2_2020_17.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2020_week_2.tif
+File: Sentinel2_2020_2.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2020_week_3.tif
+File: Sentinel2_2020_3.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2020_week_5.tif
+File: Sentinel2_2020_5.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_6.tif
+File: Sentinel2_2020_6.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_7.tif
+File: Sentinel2_2020_7.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2020_week_8.tif
+File: Sentinel2_2020_8.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2021_week_1.tif
+File: Sentinel2_2021_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2021_week_10.tif
+File: Sentinel2_2021_10.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2021_week_12.tif
+File: Sentinel2_2021_12.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2021_week_14.tif
+File: Sentinel2_2021_14.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2021_week_17.tif
+File: Sentinel2_2021_17.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2021_week_18.tif
+File: Sentinel2_2021_18.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2021_week_3.tif
+File: Sentinel2_2021_3.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2021_week_6.tif
+File: Sentinel2_2021_6.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2021_week_7.tif
+File: Sentinel2_2021_7.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2022_week_1.tif
+File: Sentinel2_2022_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2022_week_10.tif
+File: Sentinel2_2022_10.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2022_week_13.tif
+File: Sentinel2_2022_13.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2022_week_2.tif
+File: Sentinel2_2022_2.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2022_week_3.tif
+File: Sentinel2_2022_3.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2022_week_6.tif
+File: Sentinel2_2022_6.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2022_week_7.tif
+File: Sentinel2_2022_7.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_10.tif
+File: Sentinel2_2023_10.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_11.tif
+File: Sentinel2_2023_11.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_12.tif
+File: Sentinel2_2023_12.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_13.tif
+File: Sentinel2_2023_13.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2023_week_15.tif
+File: Sentinel2_2023_15.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_2.tif
+File: Sentinel2_2023_2.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_3.tif
+File: Sentinel2_2023_3.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_5.tif
+File: Sentinel2_2023_5.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_7.tif
+File: Sentinel2_2023_7.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2023_week_8.tif
+File: Sentinel2_2023_8.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2024_week_1.tif
+File: Sentinel2_2024_1.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2024_week_2.tif
+File: Sentinel2_2024_2.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2024_week_3.tif
+File: Sentinel2_2024_3.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 101 pixels
 CRS: EPSG:32604
 
-File: sentinel2_2024_week_4.tif
+File: Sentinel2_2024_4.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2024_week_5.tif
+File: Sentinel2_2024_5.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels
 Height: 102 pixels
 CRS: EPSG:32603
 
-File: sentinel2_2024_week_8.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2016_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2016_week_11.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2016_week_13.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2016_week_16.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2016_week_2.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2016_week_7.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2016_week_9.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2017_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2017_week_13.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2017_week_17.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2017_week_6.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2018_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2018_week_11.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2018_week_12.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2018_week_13.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2018_week_15.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2018_week_16.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2018_week_17.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2018_week_2.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2018_week_3.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2018_week_4.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2018_week_6.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2019_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2019_week_10.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2019_week_11.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2019_week_12.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2019_week_13.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2019_week_15.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2019_week_16.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2019_week_17.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2019_week_3.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2019_week_4.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2019_week_6.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2019_week_7.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2020_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_10.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2020_week_11.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_12.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_13.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_14.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_17.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2020_week_2.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2020_week_3.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2020_week_5.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_6.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_7.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2020_week_8.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2021_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2021_week_10.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2021_week_12.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2021_week_14.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2021_week_17.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2021_week_18.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2021_week_3.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2021_week_6.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2021_week_7.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2022_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2022_week_10.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2022_week_13.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2022_week_2.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2022_week_3.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2022_week_6.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2022_week_7.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_10.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_11.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_12.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_13.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2023_week_15.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_2.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_3.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_5.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_7.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2023_week_8.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2024_week_1.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2024_week_2.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2024_week_3.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 101 pixels
-CRS: EPSG:32604
-
-File: sentinel2_2024_week_4.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2024_week_5.tif
-Pixel width: 10.0 meters
-Pixel height: 10.0 meters
-Width: 101 pixels
-Height: 102 pixels
-CRS: EPSG:32603
-
-File: sentinel2_2024_week_8.tif
+File: Sentinel2_2024_8.tif
 Pixel width: 10.0 meters
 Pixel height: 10.0 meters
 Width: 101 pixels

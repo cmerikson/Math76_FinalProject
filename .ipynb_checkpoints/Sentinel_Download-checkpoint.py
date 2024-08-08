@@ -58,16 +58,17 @@ def sentinel_imagery(latitude, longitude, years, folder_path, start_month=6, end
 
         # Cast the image to UInt16 to ensure consistent data types and select RGB and NIR bands
         def cast_to_uint16(image):
-            return image.select(['B4', 'B3', 'B2', 'B8']).toUint16()
+            return image.select(['B4', 'B3', 'B2', 'B8', 'B11']).toUint16()
 
         # Get the images with the lowest cloud cover for each week
         weekly_images = [cast_to_uint16(img) for img in get_lowest_cloud_day(sentinel2) if img]
 
         # Export each image to Google Drive as a GeoTIFF
         for i, image in enumerate(weekly_images):
+            
             task = ee.batch.Export.image.toDrive(
                 image=image,
-                description=f'sentinel2_{year}_week_{i+1}',
+                description=f'Sentinel2_{year}_{i+1}',
                 scale=10,  # Sentinel-2 images have a resolution of 10 meters
                 region=buffered_area.getInfo()['coordinates'],
                 fileFormat='GeoTIFF',
