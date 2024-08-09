@@ -1,4 +1,4 @@
-using Images, ImageView, ImageSegmentation, ImageDraw, FileIO, Plots, PyCall, Glob
+using Images, ImageView, ImageSegmentation, ImageDraw, FileIO, Plots, PyCall, Glob, DataFrames, Dates
 
 # Function for calling band selection from python script
 function select_bands(file::String, bandA::Int, bandB::Int, bandC::Union{Nothing, Int}, output::String)
@@ -117,19 +117,21 @@ end
 
 function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, threshold::Float64 = 1.0, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing)
     
-    # Get all files matching the pattern mm-dd-yyyy
-    files = glob("*-*-*.tif", folder)
+    # Get all files with tif extension
+    files = glob("*.tif", folder)
     
-    # Parse the file names to Dates and sort in reverse order by year
-    date_format = DateFormat("mm-dd-yyyy")
+    if isempty(files)
+        println("No files found. Check folder path and file naming conventions.")
+        return nothing
+    end
     
     # Function to extract and parse date from the last ten characters of filename
    function extract_date(filename)
         base = basename(filename) # Remove folder path
         date_str = splitext(base)[1] # Remove extension
         parts = split(date_str, "_") # Split by underscore
-        year = parse(Int, parts[1]) # Extract year
-        week = parse(Int, parts[2]) # Extract week number
+        year = parse(Int, parts[2]) # Extract year
+        week = parse(Int, parts[3]) # Extract week number
         return (year, week)
     end
 
@@ -149,11 +151,13 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
     
     for i in [1:1:file_count;]
         rgb_path = select_bands(sorted[i], 1,2,3, joinpath(temp_dir, "rgb.jpg"))
-        ndvi_path = select_bands(sorted[i], 1,2,3, joinpath(temp_dir, "ndvi.jpg"))
+        ndvi_path = select_bands(sorted[i], 1,4,nothing, joinpath(temp_dir, "ndvi.jpg"))
+
+        year, week = extract_date(sorted[i])
 
         if i == 1
             pixel_count = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods)
-            row = DataFrame(Date=splitext(basename(sorted[i]))[1], Pixels=pixel_count)
+            row = DataFrame(Year=year, Week=week, Pixels=pixel_count)
             append!(results, row)
             segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
             mask = labels_map(segments) .== 1
@@ -169,7 +173,7 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
             tentative = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods)
 
             if tentative <= constraint
-              row = DataFrame(Date=splitext(basename(sorted[i]))[1], Pixels=tentative)
+              row = DataFrame(Year=year, Week=week, Pixels=tentative)
               append!(results, row)
               segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
               mask = labels_map(segments) .== 1
@@ -185,7 +189,7 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
 
                 if threshold < 1.0
                     # Binarize
-                    NDVI = .!binarize(NDVI, threshold)
+                    NDVI = (NDVI .< threshold)
                 end
 
                 if crop_size != nothing
@@ -199,7 +203,7 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
                 pixel_count = count(x -> x != 0, Masked_NDVI)
 
                 # Add to table and update mask
-                row = DataFrame(Date=splitext(basename(sorted[i]))[1], Pixels=pixel_count)
+                row = DataFrame(Year=year, Week=week, Pixels=pixel_count)
                 append!(results, row)
 
                 if Display
@@ -219,6 +223,6 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
         display(outlines)
     end
     
-    results = sort!(results, by = r -> extract_date(r[:Date]))
+    results = sort!(results, [:Year, :Week])
     return results
 end
