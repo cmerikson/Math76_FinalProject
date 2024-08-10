@@ -54,7 +54,7 @@ function display_segments(segments, file_path::String)
 end
 
 # Function to get pixel count of segmented area
-function count_pixels(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing)
+function count_pixels(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing, water_mask::Union{Nothing, BitMatrix}=nothing)
     if endswith(file_path, ".jpg")
         img = load(file_path)
         if crop_size != nothing
@@ -63,6 +63,10 @@ function count_pixels(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple
 
         if mods != nothing
             img = draw_line(img, mods)
+        end
+
+        if water_mask != nothing
+            img = img .* water_mask
         end
         
         if Seed3 == nothing && Seed4 == nothing
@@ -90,7 +94,7 @@ function count_pixels(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple
 end
 
 # Function for returning segmented object
-function segmented_object(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing)
+function segmented_object(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing, water_mask::Union{Nothing, BitMatrix}=nothing)
     if endswith(file_path, ".jpg")
         img = load(file_path)
         if crop_size != nothing
@@ -99,6 +103,10 @@ function segmented_object(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::T
 
         if mods != nothing
             img = draw_line(img, mods)
+        end
+
+        if water_mask != nothing
+            img .* water_mask
         end
         
         if Seed3 == nothing && Seed4 == nothing
@@ -115,7 +123,7 @@ function segmented_object(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::T
     end
 end
 
-function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, ndvi_threshold::Float64 = 1.0, ndwi_threshold::Float64 = 1.0, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing)
+function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, ndvi_threshold::Float64 = 1.0, ndwi_threshold::Float64 = 0.65, ndwi_image::Union{Nothing, String}=nothing, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing)
     
     # Get all files with tif extension
     files = glob("*.tif", folder)
@@ -148,29 +156,42 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
 
     # Create a temporary directory
     temp_dir = mktempdir()
-    
+
+    # NDWI Water Mask
+    if ndwi_image != nothing
+        selected_image = filter(s -> occursin(ndwi_image, s), files)
+        if length(selected_image) == 1
+            selected_image = first(selected_image) # Convert from :Vector{String} to ::String
+            ndwi_path = select_bands(selected_image, 5,4,nothing, joinpath(temp_dir, "ndwi.jpg"))
+            ndwi = load(ndwi_path)
+            binary_ndwi = ndwi .> ndwi_threshold
+            water_mask = .!dilate(binary_ndwi)
+        elseif length(selected_image) > 1
+            error("Error: There are multiple files with names matching the image selected for water masking.")
+        elseif length(selected_image) == 0
+            error("Error: Provided raster for water mask not found.")
+        end
+    else
+        print("Defaulting to no water mask.")
+        water_mask = 1.0
+    end
+
+    # Main Segmentation
     for i in [1:1:file_count;]
         rgb_path = select_bands(sorted[i], 1,2,3, joinpath(temp_dir, "rgb.jpg"))
         ndvi_path = select_bands(sorted[i], 4,1,nothing, joinpath(temp_dir, "ndvi.jpg"))
 
         year, week = extract_date(sorted[i])
 
+
         if i == 1
-            if ndwi_threshold < 1
-                ndwi_path = select_bands(sorted[i], 5,4,nothing, joinpath(temp_dir, "ndwi.jpg"))
-                ndwi = load(ndwi_path)
-                binary_ndwi = ndwi .< ndwi_threshold
-                binary_ndwi = dilate(binary_ndwi)
-            else
-                binary_ndwi = 1.0
-            end
+            pixel_count = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods) 
             
-            pixel_count = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods)
             row = DataFrame(Year=year, Week=week, Pixels=pixel_count)
             append!(results, row)
             segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
             mask = labels_map(segments) .== 1
-            mask = mask .* binary_ndwi
+            mask = mask .* water_mask
 
             if Display
                 masks = masks .+ mask
@@ -180,13 +201,14 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
 
         if i > 1
             constraint = results[i-1, "Pixels"]
-            tentative = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods)
-
+            tentative = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods) 
+            
             if tentative <= constraint
               row = DataFrame(Year=year, Week=week, Pixels=tentative)
               append!(results, row)
               segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
               mask = labels_map(segments) .== 1
+              mask = mask .* water_mask
               if Display
                 masks = masks .+ mask
                 outlines = heatmap!(reverse(masks, dims=1))
@@ -207,7 +229,7 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
                 end
                 
                 # Mask NDVI of current image by area of previous image
-                Masked_NDVI = mask .* NDVI
+                Masked_NDVI = mask .* NDVI .* water_mask
                 
                 # Tally pixels meeting criterion within masked area
                 pixel_count = count(x -> x != 0, Masked_NDVI)
