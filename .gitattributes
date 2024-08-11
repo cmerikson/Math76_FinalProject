@@ -1,2 +1,4 @@
 * linguist-detectable
+*.jl linguist-language=Julia
+*.py linguist-language=Python
 *.ipynb linguist-documentation
