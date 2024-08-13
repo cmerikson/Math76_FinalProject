@@ -132,15 +132,14 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
         println("No files found. Check folder path and file naming conventions.")
         return nothing
     end
+
+    date_format = DateFormat("yyyy-mm-dd")
     
     # Function to extract and parse date from the last ten characters of filename
-   function extract_date(filename)
+    function extract_date(filename)
         base = basename(filename) # Remove folder path
-        date_str = splitext(base)[1] # Remove extension
-        parts = split(date_str, "_") # Split by underscore
-        year = parse(Int, parts[2]) # Extract year
-        week = parse(Int, parts[3]) # Extract week number
-        return (year, week)
+        date_str = base[11:20] # Get the last ten characters excluding extension
+        return Date(date_str, date_format) # Parse date
     end
 
     # Sort files by the extracted date in reverse order
@@ -181,13 +180,12 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
         rgb_path = select_bands(sorted[i], 1,2,3, joinpath(temp_dir, "rgb.jpg"))
         ndvi_path = select_bands(sorted[i], 4,1,nothing, joinpath(temp_dir, "ndvi.jpg"))
 
-        year, week = extract_date(sorted[i])
-
+        date = extract_date(sorted[i])
 
         if i == 1
             pixel_count = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods) 
             
-            row = DataFrame(Year=year, Week=week, Pixels=pixel_count)
+            row = DataFrame(Date=date, Pixels=pixel_count)
             append!(results, row)
             segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
             mask = labels_map(segments) .== 1
@@ -204,7 +202,7 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
             tentative = count_pixels(rgb_path, Seed1, Seed2, Seed3=Seed3, Seed4=Seed4, Display=false, crop_size=crop_size, mods=mods) 
             
             if tentative <= constraint
-              row = DataFrame(Year=year, Week=week, Pixels=tentative)
+              row = DataFrame(Date=date, Pixels=tentative)
               append!(results, row)
               segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
               mask = labels_map(segments) .== 1
@@ -235,7 +233,7 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
                 pixel_count = count(x -> x != 0, Masked_NDVI)
 
                 # Add to table and update mask
-                row = DataFrame(Year=year, Week=week, Pixels=pixel_count)
+                row = DataFrame(Date=date, Pixels=pixel_count)
                 append!(results, row)
 
                 if Display
@@ -255,6 +253,6 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
         display(outlines)
     end
     
-    results = sort!(results, [:Year, :Week])
-    return results
+    #results.Date = Date.(results.Date, "yyyy-mm-dd")
+    results = sort!(results, :Date)
 end
