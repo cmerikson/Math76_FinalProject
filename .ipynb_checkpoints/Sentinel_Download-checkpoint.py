@@ -56,6 +56,8 @@ def sentinel_imagery(latitude, longitude, years, folder_path, start_month=6, end
             .filterDate(start_date, end_date) \
             .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
 
+        # image.date().format("YYYY-MM-dd")
+
         # Cast the image to UInt16 to ensure consistent data types and select RGB and NIR bands
         def cast_to_uint16(image):
             return image.select(['B4', 'B3', 'B2', 'B8', 'B11']).toUint16()
@@ -64,17 +66,23 @@ def sentinel_imagery(latitude, longitude, years, folder_path, start_month=6, end
         weekly_images = [cast_to_uint16(img) for img in get_lowest_cloud_day(sentinel2) if img]
 
         # Export each image to Google Drive as a GeoTIFF
-        for i, image in enumerate(weekly_images):
-            
-            task = ee.batch.Export.image.toDrive(
-                image=image,
-                description=f'Sentinel2_{year}_{i+1}',
-                scale=10,  # Sentinel-2 images have a resolution of 10 meters
-                region=buffered_area.getInfo()['coordinates'],
-                fileFormat='GeoTIFF',
-                folder=folder_path
-            )
-            task.start()
+        for image in weekly_images:
+            # Get the date from the image's metadata
+            try:
+                image_date = ee.Date(image.get('system:time_start')).format('YYYY-MM-dd').getInfo()
+                print("Exporting image with date:", image_date)
+
+                task = ee.batch.Export.image.toDrive(
+                    image=image,
+                    description=f'Sentinel2_{image_date}',
+                    scale=10,  # Sentinel-2 images have a resolution of 10 meters
+                    region=buffered_area.getInfo()['coordinates'],
+                    fileFormat='GeoTIFF',
+                    folder=folder_path
+                )
+                task.start()
+            except Exception as e:
+                print("Error retrieving image date. Likely no images below the cloud threshold.", e)
 
     print(f"Export tasks have been started for years {years}. Check Google Drive for results.")
 
