@@ -24,10 +24,10 @@ def calculate_ndvi(file_path, threshold=False, display=False, metadata_list=None
     os.makedirs(ndwi_folder, exist_ok=True)
 
     # Define file names and paths
-    ndvi_name = f"NDVI_{name[-6:]}.jpg"
-    rgb_name = f"RGB_{name[-6:]}.jpg"
-    rgba_name = f"RGBA_{name[-6:]}.png"  # Save RGBA as PNG
-    ndwi_name = f"NDWI_{name[-6:]}.jpg"
+    ndvi_name = f"NDVI_{name[-10:]}.jpg"
+    rgb_name = f"RGB_{name[-10:]}.jpg"
+    rgba_name = f"RGBA_{name[-10:]}.png"  # Save RGBA as PNG
+    ndwi_name = f"NDWI_{name[-10:]}.jpg"
     
     ndvi_path = os.path.join(ndvi_folder, ndvi_name)
     rgb_path = os.path.join(rgb_folder, rgb_name)
