@@ -51,7 +51,7 @@ def sentinel_imagery(latitude, longitude, years, folder_path, start_month=6, end
         end_date = f'{year}-{end_month:02d}-30'
         
         # Load Sentinel-2 image collection and filter by date, location, and cloud cover
-        sentinel2 = ee.ImageCollection('COPERNICUS/S2') \
+        sentinel2 = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED') \
             .filterBounds(buffered_area) \
             .filterDate(start_date, end_date) \
             .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
