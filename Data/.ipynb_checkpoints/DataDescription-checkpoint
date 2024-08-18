@@ -1,6 +1,10 @@
-Sentinel Imagery
+Sentinel-2 Imagery
 
-Date Range from June to September of 2015-2024
+Date Range from June to September of 2019-2024
+
+s001
+Latitude: 68.198500
+Longitude: -156.114300
 
 s002
 Latitude: 68.632100
@@ -13,5 +17,21 @@ Longitude: -122.512000
 Manual Pixel Count 2021 Week 9: 152
 
 s004
-Latitude: -161.092834
-Longitude: 67.947201
+Latitude: 67.947201
+Longitude: -161.092834
+
+s005
+Latitude: 68.408560
+Longitude: -132.230280
+
+s008
+Latitude: 63.594238
+Longitude: -124.124639
+
+s015
+Latitude: 68.889200
+Longitude: -131.571700
+
+s019
+Latitude: 68.948500
+Longitude: -131.365400

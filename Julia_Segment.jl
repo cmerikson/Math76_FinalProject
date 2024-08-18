@@ -14,9 +14,9 @@ function crop_center(img::AbstractArray, crop_size::Tuple{Int, Int})
     center_y, center_x = div(img_height, 2), div(img_width, 2)
     
     top = max(1, center_y - div(crop_height, 2))
-    bottom = min(img_height, center_y + div(crop_height, 2))
+    bottom = min(img_height, top + crop_height - 1)
     left = max(1, center_x - div(crop_width, 2))
-    right = min(img_width, center_x + div(crop_width, 2))
+    right = min(img_width, left + crop_width - 1)
     
     return img[top:bottom, left:right]
 end
@@ -165,6 +165,9 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
             ndwi = load(ndwi_path)
             binary_ndwi = ndwi .> ndwi_threshold
             water_mask = .!dilate(binary_ndwi)
+            if crop_size != nothing
+                water_mask = crop_center(water_mask, crop_size)
+            end
         elseif length(selected_image) > 1
             error("Error: There are multiple files with names matching the image selected for water masking.")
         elseif length(selected_image) == 0
@@ -207,6 +210,7 @@ function segment_mask(folder::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{In
               segments = segmented_object(rgb_path, Seed1, Seed2, Seed3=Seed3, crop_size=crop_size, mods=mods)
               mask = labels_map(segments) .== 1
               mask = mask .* water_mask
+                
               if Display
                 masks = masks .+ mask
                 outlines = heatmap!(reverse(masks, dims=1))

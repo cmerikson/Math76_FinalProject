@@ -1,0 +1,357 @@
+File: Sentinel2_2019-06-07.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-06-10.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-06-17.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-07-25.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-07-27.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-08-21.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-09-03.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-09-07.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-09-20.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2019-09-28.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-06-03.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-06-14.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-06-18.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-06-24.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-06-29.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-07-11.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-07-31.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-08-18.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-08-28.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-09-06.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2020-09-19.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-06-06.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-06-14.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-06-19.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-06-23.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-07-16.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-07-23.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-08-03.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-09-02.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2021-09-07.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-06-14.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-06-21.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-06-28.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-07-01.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-07-06.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-08-05.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-08-12.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-08-30.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2022-09-02.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2023-06-24.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2023-07-04.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2023-07-29.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2023-08-08.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2023-09-17.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2024-06-05.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2024-06-10.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2024-06-15.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2024-06-23.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2024-07-10.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2024-07-23.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
+File: Sentinel2_2024-08-06.tif
+Pixel width: 10.0 meters
+Pixel height: 10.0 meters
+Width: 101 pixels
+Height: 102 pixels
+CRS: EPSG:32608
+
