@@ -3,4 +3,5 @@
 *.py linguist-language=Python
 *.ipynb linguist-documentation
 *.txt linguist-documentation
-
+*.csv linguist-documentation
+*.md linguist-documentation
