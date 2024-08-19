@@ -21,13 +21,18 @@ ManualData =unique(ManualData,by=c('ID','Date'))
 ManualData = ManualData[,MaxArea:=max(ManualArea),by=c('ID')]
 ManualData = ManualData[,NormalizedArea:=ManualArea/MaxArea]
 
-ThresholdData = fread(files[6])
+NDVIData = fread(files[6])
+NDVIData = NDVIData[,Area:=Pixels*100/1000000]
+setnames(NDVIData,'Year','year')
+setnames(NDVIData,'Month','month')
+
+ThresholdData = fread(files[7])
 ThresholdData = ThresholdData[,Area:=Pixels*100/1000000]
 
-NoMask = fread(files[7])
+NoMask = fread(files[8])
 NoMask = NoMask[,Area:=Pixels*100/1000000]
 
-Data = merge(ThresholdData,ManualData[,c('ManualArea','ID','Date')], by=c('ID','Date'))
+Data = merge(NDVIData,ManualData[,c('ManualArea','ID','Date')], by=c('ID','Date'))
 
 #### Visualize Data ####
 # Growth by slump

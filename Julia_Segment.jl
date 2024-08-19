@@ -54,7 +54,7 @@ function display_segments(segments, file_path::String)
 end
 
 # Function to get pixel count of segmented area
-function count_pixels(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing, water_mask::Union{Nothing, BitMatrix}=nothing)
+function count_pixels(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple{Int64,Int64}; Seed3::Union{Nothing, Tuple{Int64,Int64}} = nothing, Seed4::Union{Nothing, Tuple{Int64,Int64}} = nothing, Display::Bool = false, crop_size::Union{Nothing, Tuple{Int, Int}}=nothing, mods::Union{Nothing, Vector{Tuple{Real, Real, Vararg{Float64}}}}=nothing, water_mask::Union{Nothing, BitMatrix}=nothing, ndvi_threshold::Union{Nothing, Float64}=nothing)
     if endswith(file_path, ".jpg")
         img = load(file_path)
         if crop_size != nothing
@@ -67,6 +67,10 @@ function count_pixels(file_path::String, Seed1::Tuple{Int64,Int64}, Seed2::Tuple
 
         if water_mask != nothing
             img = img .* water_mask
+        end
+
+        if ndvi_threshold != nothing
+            img = img .< ndvi_threshold
         end
         
         if Seed3 == nothing && Seed4 == nothing
