@@ -87,4 +87,24 @@ ManualData$ModelValue <- predict(best_model, newdata = ManualData)
 ggplot()+
   geom_function(fun = function(x) x)+
   geom_point(data=ManualData,aes(NormalizedArea, ModelValue, color=ID))+
+  labs(x='Normalized Failure Area', y='Predicted Normalized Failure Area')+
+  annotate('text',label='1:1 Line', x = 0.5, y=0.45)+
   theme_bw()
+
+#### Growth Rate ####
+ThresholdValidation = merge(ThresholdData,ManualData[,c('ManualArea','ID','Date')], by=c('ID','Date'))
+ThresholdValidation = ThresholdValidation[,Error:=Area - ManualArea]
+ThresholdValidation = ThresholdValidation[,RMSE:=sqrt((Error^2)/.N), by=c('ID','Threshold')]
+ThresholdValidation = ThresholdValidation[,.SD[RMSE==min(RMSE)],by='ID']
+
+ThresholdSubset = ThresholdData[Threshold==0.53]
+
+# Rates 
+ggplot()+
+  facet_wrap(vars(ID), scales = 'free')+
+  geom_point(data=ThresholdSubset,aes(Date,Area))+
+  theme_bw()
+
+ThresholdSubset = ThresholdSubset[,c('Rate','Growth'):=.((max(Area) - first(Area))/(2024-2019), max(Area) - first(Area)), by='ID']
+Rates = unique(ThresholdSubset,by='Rate')
+

@@ -16,9 +16,8 @@ We created a validation dataset by interpolating between manually selected point
 #### Julia Segmentation
 To segment hillslope failures, we first created RGB imagery from the rasters of satillite data. We then used seeded segmentation, with seeds within and outside of the failed area, to classify failed pixels. We masked water using a normalized differnce water index to limit turbid water from being calssified as a hillslope failure. We also used a normalized difference vegetation index to restrict the possible failure area for early dates.
 
-#### Python Segmentation
-
 #### Model Development
+We used the Bayesian Information Criterion to inform best model subset selection on the manual validation data. We incorporated non-linear effects by including higher order variables of original features.
 
 ### Data Source
 

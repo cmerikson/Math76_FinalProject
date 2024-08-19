@@ -79,7 +79,7 @@ After the images are segmented, and NDWI mask is applied to remove pixels were t
 <figure>
     <center>
         <img src=Output/s003_heatmap.png width="300", height="200">
-        <figcaption><b>Figure 3</b>: A heatmap showing slump growth at site s003. Darker colors are more recent times and brighter colors are earlier times.</figcaption>
+        <figcaption><b>Figure 4</b>: A heatmap showing slump growth at site s003. Darker colors are more recent times and brighter colors are earlier times.</figcaption>
     </center>
 </figure>
 
@@ -88,11 +88,37 @@ After the images are segmented, and NDWI mask is applied to remove pixels were t
 The NDVI segmentation approach set an NDVI threshold and created a binary image. Values below the threshold were set to one whereas values below the threshold were set to zero. This creates a simple segmentation task, so we utlized the seeded segmentation framework we had already developed for RGB imagery. 
 
 ##### Manual Data Analysis
-Using the validation dataset created by manually segmenting the images, we explored failure growth sensitivity to time of year and latitude. To do this, we used best-subset selection on a series of linear models. Model parameters included were image month and year, and site latitude. We also included the possibility for non-linear effects by creating additional features as the square of month and year. The variable predicted was the total failed area normalized by the maximum failed area of the images for a given site, such that all sites could be compared. After year, we expected that vegetation would be the next most influential on segmentation by making failures appear smaller during the growing season. Data analysis was performed in the file `Threshold_Analysis.R`
+Using the validation dataset created by manually segmenting the images, we explored failure growth sensitivity to time of year and latitude. To do this, we used best-subset selection on a series of linear models. Model parameters included were image month and year, and site latitude. We also included the possibility for non-linear effects by creating additional features as the square of month and year. The variable predicted was the total failed area normalized by the maximum failed area of the images for a given site, such that all sites could be compared. After year, we expected that vegetation would be the next most influential on segmentation by making failures appear smaller during the growing season. The best model was selected accoriding to the Bayesian Information Criterion. Data analysis was performed in the file `Threshold_Analysis.R`
 
 ### Results
 
-*Best Model Subset Selection*
+##### Algorithm Comparison
+
+Between the two seeded segmentation approaches, the NDVI thresholding approach was able to achieve the lowest overall Root Mean Square Errors (RMSE), but only for specific failures. Across all sites, the NDVI thrsholding approach had an RSME of 0.007 square kilometers while the masking approach had and RMSE of 0.0002 square kilometers. Because of the higher general accuracy, remaining results are shown for the masking approach.
+
+##### Growth Rates
+
+Mean growth rates over the observation period vary between failures (Table 2). Three of the five failures show consistent growth, while the remaining two were mostly stagnant (Figure 5). These two show a rapid growth at the end. It is possible this is an artifact of the forced size being smaller at earlier times, but the resultant heatmaps do appear reasonable (see `Main_Segmentation.ipynb`).
+
+<figure>
+    <center>
+        <img src=Output/Growth_Plots.png >
+        <figcaption><b>Figure 5</b>: Results of the masked Julia-based seeded segmentation algorithm.</figcaption>
+    </center>
+</figure>
+
+<center><b>Table 2</b>: Growth Rates</center>
+
+Site ID|Growth Rate|Total Growth
+---|:---:|---: 
+s002|0.02580|0.1290
+s003|0.00684|0.0342
+s004|0.00764|0.0382
+s015|0.15318|0.7659
+s019|0.00366|0.0183
+
+##### Best Model Subset Selection
+
 The best model resulting from the subset selection was of the form:
 
 $$y = a_0 (month) + a_1 (month^2) + b_0 (year^2) + c_0 (latitude) + d_0$$
@@ -104,11 +130,11 @@ We used the model to calcualte predicted values for purposes if vizualization (F
 <figure>
     <center>
         <img src=Output/One_to_One_plot.png>
-        <figcaption><b>Figure 3</b>: Comparison between measured data and predicted data using the model resulting from best subset selection. A one to one line is shown only for convinience.</figcaption>
+        <figcaption><b>Figure 6</b>: Comparison between measured data and predicted data using the model resulting from best subset selection. A one to one line is shown only for convinience.</figcaption>
     </center>
 </figure>
 
-<center><b>Table 2</b>: Best Model Coefficients</center>
+<center><b>Table 3</b>: Best Model Coefficients</center>
 
 Variable|Coefficeint|Relationship
 ---|:---:|---: 
@@ -120,9 +146,31 @@ intercept|-46.14890|
 
 ### Discussion
 
+The seeded segmentation approach using NDVI and NDWI masks was the most generalizable model. This is likley because the approach enforces realistic results, realative to the best segmentations. If one image is segmented well, the rest will at least be similar to this one because of the mask. However, this does have the limitation of not capturing seasonal dynamics well. The manual segmentation shows that there is considerable intraannual change in failure area, likely due to vegetative growth and, in some cases, snow cover. A case where vegetation has not yet grown in the early season would not be well represented by this approach because it assumes that this earlier period must be smaller than the later, more vegetated, period. 
+
+The NDVI threshold approach was able to perform best on a site specific basis, but, because different sites tended to have different appropriate NDVI thresholds, choosing the threshold best for one site did not translate well to other sites. The variance in thresholds between sites suggests that an adaptive NDVI threshold may lead to further improvements in the segmenting algorithms. The existing masking approach for example, may benefit from adjusting the NDVI mask based on time of year, to allow for larger failures when there would be less vegetation. Incorporating latitude into an adaptive model for NDVI threshold may also help to address the effects of snow cover.
+
+Both Julia-based approaches vastly outperformed the Python based approaches, including a similar seeded approach in Python. This may be because of the complexity of the natural imagery, which made it difficult to detect areas cleanly bounded by edges. In contrast, using numerically represented matrices of color offered a simple and effective approach because of the sufficient contrast.
+
+The image segmentation demonstrated that failure growth can be highly variable; growth rates of the failures spanned three orders of magnitude. This variability may partially reflect noise in the imagery and in the segmentation, but it is also probably a reflection of failure age. Although initiation dates were not considered here, it may be that older failures grew less during the observation period because they began to restablize, whereas recently initiated failure grew the most. Additionally, the location of failure may also control total growth because of factors like temperature and knickpoint retreat that could further destabilize one failure relative to another.
+
 The inverse relationship between latitude and failure size is expected. As latitude increases, temperature decreases, which favors soils remaining frozen and being less suceptible to failure. The positive relationship between failure size and year is also expected; failure grow in time and are even known to be a persistent source of sediment long after inital disturbance in more temperate climates (Dethier et al., 2016).
 
 ### Conclusion
+
+We segmented arctic hillslope failures using image segmentation. We found that seeded segmentation which utilized Normalized Difference Indicies was the most generalizable. Growth rates across sites within Canada and Alaska show considerable variation. Such variation indicates that sediment fluxes in these regions is likely to be site specific. We also observed a vegetative effect that complicates intra-annual failure size predictions; failures do not always grow in a linear or monotonic fashion. 
+
+### Learning Outcomes and Contribution Statements
+
+This project revealed the sensitivity of different algorithms to the data being used and performance across languages. Julia's relativley less developed ecosystem of packages was not anticipated to outperform Python, yet was much easier to use and had better results.
+
+While Python's segmentation was not preferred, Python's capabilities for handling rasters was much simpler to use than Julia's. Resultantly, the main code uses calls between languages for processing.
+
+Similarly, the sensitvity of the algorithms to data quality was more than expected. Cloudy images needed to be manually removed because they drastically impacted results.
+
+Best subset selection was found to be suprisingly efficient. Although it become coputational expensive, best subset selection with the five variables usd was quite fast.
+
+Christian wrote the code for data preprocessing, Julia-based image segmenation, and data analysis, and performed manual validation. Kyrylo wrote the code for manual validation. Sonia worked on Python-based image segmentation. Josh worked on validating Julia code and assisting with manual validation.
 
 ### References
 
