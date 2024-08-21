@@ -16,6 +16,9 @@ We created a validation dataset by interpolating between manually selected point
 #### Julia Segmentation
 To segment hillslope failures, we first created RGB imagery from the rasters of satillite data. We then used seeded segmentation, with seeds within and outside of the failed area, to classify failed pixels. We masked water using a normalized differnce water index to limit turbid water from being calssified as a hillslope failure. We also used a normalized difference vegetation index to restrict the possible failure area for early dates.
 
+#### Python Segmentation
+To segment slump development, we also generated Python scripts in parallel to those in Julia. One script mirrored the Julia script, importing its functions in order to process the data near-identically. The other script employed mean threshold segmentation and automatic threshold segmentation. With mean threshold segmentation, a threshold of 2.5 * the mean pixel value in the image was found to best segment the RGB images in grayscale. With automatic threshold segmentation, a threshold was generated using inbuilt functions in the Scikit Image package. These functions are not as robust as those in Julia, generating correspondingly rougher results.
+
 #### Model Development
 We used the Bayesian Information Criterion to inform best model subset selection on the manual validation data. We incorporated non-linear effects by including higher order variables of original features.
 
