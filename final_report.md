@@ -102,9 +102,11 @@ Using the validation dataset created by manually segmenting the images, we explo
 
 ##### Algorithm Comparison
 
-Between the two seeded segmentation approaches, the NDVI thresholding approach was able to achieve the lowest overall Root Mean Square Errors (RMSE), but only for specific failures. Across all sites, the NDVI thrsholding approach had an RSME of 0.007 square kilometers while the masking approach had and RMSE of 0.0002 square kilometers. Because of the higher general accuracy, remaining results are shown for the masking approach.
+#### Julia-Based Segmentation
 
-##### Python-Based Threshold Segmentation Comparison
+Julia-based seeded segmentation had the best performance of the analyzed algorithms. Between the two Julia seeded segmentation approaches, the NDVI thresholding approach was able to achieve the lowest overall Root Mean Square Errors (RMSE), but only for specific failures. Across all sites, the NDVI thrsholding approach had an RSME of 0.007 square kilometers while the masking approach had and RMSE of 0.0002 square kilometers. Because of the higher general accuracy, remaining results are shown for the masking approach.
+
+#### Python-Based Threshold Segmentation Comparison
 
 Between the two Python-based threshold segmentation approaches, the Automatic Threshold Segmentation approach was able to more consistently achieve accurate results; due to software limitations, we were unable to calculate RMSE to confirm this, and instead confirmed manually through independent review. Individually, it is evident that both Python-based threshold segmentation approaches are somewhat viable, as they are able to semi-accurately segment images chosen from the data at random.
 
@@ -115,7 +117,7 @@ Between the two Python-based threshold segmentation approaches, the Automatic Th
     </center>
 </figure>
 
-Notably, however, the Python-based threshold segmentation methods vary in their efficacy across timecourse data. It is still evident that these methods are somewhat accurate, as both methods (but most especially Automatic Threshold Segmentation) are able to capture the seasonal changes in slump each year. This is evidenced by the plotting of slump size (in pixels) for each set of data/images over time: there is a distinct spike in the size every mid-year/summer and a dip every year-end/winter, likely due to snow coverage (discussed elsewhere in this writeup). General trends of increase and decrease in slump are also somewhat visible, but are more difficult to objectively quantify due to the variability of the data. This is compounded by the clear presence of large irregular spikes in the data, indicating outliers (likely due to image quality).
+Notably, however, the Python-based threshold segmentation methods vary in their efficacy across timecourse data. Both methods (but most especially Automatic Threshold Segmentation) capture the seasonal changes in slump each year. This is evidenced by the plotting of slump size (in pixels) for each set of data/images over time: there is a distinct spike in the size every mid-year/summer and a dip every year-end/winter, likely due to snow coverage (discussed elsewhere in this writeup). General trends of increase and decrease in slump are also somewhat visible, but are more difficult to objectively quantify due to the variability of the data. This is compounded by the clear presence of large irregular spikes in the data, indicating outliers.
 
 <figure>
     <center>
@@ -180,7 +182,7 @@ The NDVI threshold approach was able to perform best on a site specific basis, b
 
 Both Julia-based approaches vastly outperformed the Python based approaches, including a similar seeded approach in Python. This may be because of the complexity of the natural imagery, which made it difficult to detect areas cleanly bounded by edges. In contrast, using numerically represented matrices of color offered a simple and effective approach because of the sufficient contrast.
 
-Within the Python-based approaches, it is evident that there is potential for more robust results in the future. However, available methods (both innate to Python packages and carried over from Julia) still severely underperform segmentation in Julia due to a lower level of development, even in instances where results could be termed visually comparable. This is more evident in the Python-based threshold segmentation approaches than in the approaches most closely mirroring Julia-based ones. Future development of appropriate Python packages, as well as more comprehensive filtering of outliers (which currently cause unreliable spikes in the data), could potentially enable better analysis than is currently possible.
+Within the Python-based approaches, it is evident that there is potential for more robust results in the future. However, available methods (both innate to Python packages and carried over from Julia) still severely underperform compared to segmentation in Julia due to a lower level of development, even in instances where results could be termed visually comparable. This is more evident in the Python-based threshold segmentation approaches than in the approaches most closely mirroring Julia-based ones. Future development of appropriate Python packages, as well as more comprehensive filtering of outliers (which currently cause unreliable spikes in the data), could potentially enable better analysis than is currently possible.
 
 The image segmentation demonstrated that failure growth can be highly variable; growth rates of the failures spanned three orders of magnitude. This variability may partially reflect noise in the imagery and in the segmentation, but it is also probably a reflection of failure age. Although initiation dates were not considered here, it may be that older failures grew less during the observation period because they began to restablize, whereas recently initiated failure grew the most. Additionally, the location of failure may also control total growth because of factors like temperature and knickpoint retreat that could further destabilize one failure relative to another.
 
